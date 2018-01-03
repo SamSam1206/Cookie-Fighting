@@ -1,0 +1,12 @@
+#pragma once
+
+#include "Graphics.h"
+
+class Space
+{
+public:
+	void Draw(Graphics& gfx);
+private:
+	int x = 0;
+	int y = 0;
+};

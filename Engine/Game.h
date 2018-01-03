@@ -24,6 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Arrow.h"
+#include "Space.h"
 
 class Game
 {
@@ -44,5 +45,6 @@ private:
 	/********************************/
 	/*  User Variables              */
 	Arrow arrow;
+	Space space;
 	/********************************/
 };
