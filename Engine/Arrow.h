@@ -22,7 +22,7 @@ private:
 public:
 	void Update(Graphics& gfx, Keyboard& kbd, float dt);
 	void ClampToScreen();
-	void Shoot(Keyboard& kbd);
+	void Shoot(Keyboard& kbd, float dt);
 	void Draw(Graphics& gfx);
 private:
 	std::vector<Ammo> ammo;
@@ -33,4 +33,5 @@ private:
 	static constexpr float width = 20.0f;
 	static constexpr float height = 20.0f;
 	static constexpr float speed = 2.0f;
+	float shootEverySeconds = 0.0f;
 };

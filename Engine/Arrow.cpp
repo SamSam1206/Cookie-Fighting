@@ -19,7 +19,7 @@ void Arrow::Update(Graphics& gfx, Keyboard& kbd, float dt)
 		x -= speed * dt*60.0f;
 	}
 
-	Shoot(kbd);
+	Shoot(kbd, dt);
 	for (int i = 0; i < ammo.size(); i++)
 	{
 		ammo[i].Update(gfx, *this, dt);
@@ -46,12 +46,17 @@ void Arrow::ClampToScreen()
 	}
 }
 
-void Arrow::Shoot(Keyboard & kbd)
+void Arrow::Shoot(Keyboard& kbd, float dt)
 {
+	shootEverySeconds += dt;
 	if (kbd.KeyIsPressed(VK_SPACE))
 	{
-		ammoShot++;
-		ammo.push_back(Ammo());
+		if (shootEverySeconds > 0.3)
+		{
+			ammoShot++;
+			ammo.push_back(Ammo());
+			shootEverySeconds = 0.0f;
+		}
 	}
 }
 
