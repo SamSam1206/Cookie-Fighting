@@ -1,6 +1,6 @@
 #include "Arrow.h"
 
-void Arrow::Update(Keyboard & kbd)
+void Arrow::Update(Graphics& gfx, Keyboard& kbd)
 {
 	if (kbd.KeyIsPressed(VK_UP))
 	{
@@ -17,6 +17,12 @@ void Arrow::Update(Keyboard & kbd)
 	if (kbd.KeyIsPressed(VK_LEFT))
 	{
 		x -= speed;
+	}
+
+	Shoot(kbd);
+	for (int i = 0; i < ammo.size(); i++)
+	{
+		ammo[i].Update(gfx, *this);
 	}
 }
 
@@ -37,6 +43,15 @@ void Arrow::ClampToScreen()
 	if (x + width > float(Graphics::ScreenWidth - 1))
 	{
 		x = float(Graphics::ScreenWidth - 1) - width;
+	}
+}
+
+void Arrow::Shoot(Keyboard & kbd)
+{
+	if (kbd.KeyIsPressed(VK_SPACE))
+	{
+		ammoShot++;
+		ammo.push_back(Ammo());
 	}
 }
 
@@ -301,4 +316,31 @@ void Arrow::Draw(Graphics & gfx)
 	gfx.PutPixel(2 + i_x, 19 + i_y, 127, 127, 127);
 	gfx.PutPixel(3 + i_x, 19 + i_y, 127, 127, 127);
 	gfx.PutPixel(4 + i_x, 19 + i_y, 127, 127, 127);
+}
+
+void Arrow::Ammo::Update(Graphics& gfx, Arrow& arrow)
+{
+	if (x >= float(Graphics::ScreenWidth) - 5)
+	{
+		offScreen = true;
+	}
+	if (offScreen == false)
+	{
+		Draw(gfx, arrow);
+	}
+	x += 5.0f;
+}
+
+void Arrow::Ammo::Draw(Graphics& gfx, Arrow& arrow)
+{
+	if (shot == false)
+	{
+		x = arrow.x + 20;
+		y = arrow.y + 10;
+		shot = true;
+	}
+	int i_x = int(x);
+	int i_y = int(y);
+	gfx.PutPixel(0 + i_x, 0 + i_y, 224, 32, 64);
+	gfx.PutPixel(1 + i_x, 0 + i_y, 224, 32, 64);
 }

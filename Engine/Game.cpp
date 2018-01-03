@@ -39,7 +39,7 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	space.Draw(gfx);
-	arrow.Update(wnd.kbd);
+	arrow.Update(gfx, wnd.kbd);
 	arrow.ClampToScreen();
 }
 
