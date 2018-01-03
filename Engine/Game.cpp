@@ -38,8 +38,11 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	arrow.Update(wnd.kbd);
+	arrow.ClampToScreen();
 }
 
 void Game::ComposeFrame()
 {
+	arrow.Draw(gfx);
 }
