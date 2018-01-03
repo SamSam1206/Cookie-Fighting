@@ -328,7 +328,7 @@ void Arrow::Ammo::Update(Graphics& gfx, Arrow& arrow)
 	{
 		Draw(gfx, arrow);
 	}
-	x += 5.0f;
+	x += ammoSpeed;
 }
 
 void Arrow::Ammo::Draw(Graphics& gfx, Arrow& arrow)

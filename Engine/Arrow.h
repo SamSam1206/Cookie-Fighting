@@ -17,6 +17,7 @@ private:
 		bool offScreen = false;
 		float x;
 		float y;
+		float ammoSpeed = 10.0f;
 	};
 public:
 	void Update(Graphics& gfx, Keyboard& kbd);
@@ -26,6 +27,7 @@ public:
 private:
 	std::vector<Ammo> ammo;
 	int ammoShot = 0;
+	bool shooting = false;
 	float x = 20.0f;
 	float y = 300.0f;
 	static constexpr float width = 20.0f;

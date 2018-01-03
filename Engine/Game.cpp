@@ -20,6 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include <chrono>
 
 Game::Game( MainWindow& wnd )
 	:
@@ -38,6 +39,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	float dt = ft.Mark();
 	space.Draw(gfx);
 	arrow.Update(gfx, wnd.kbd);
 	arrow.ClampToScreen();

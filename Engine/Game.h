@@ -25,6 +25,7 @@
 #include "Graphics.h"
 #include "Arrow.h"
 #include "Space.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -44,6 +45,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	FrameTimer ft;
 	Arrow arrow;
 	Space space;
 	/********************************/
