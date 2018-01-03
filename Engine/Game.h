@@ -26,6 +26,7 @@
 #include "Arrow.h"
 #include "Space.h"
 #include "FrameTimer.h"
+#include "Meteorite.h"
 
 class Game
 {
