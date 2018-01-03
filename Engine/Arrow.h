@@ -10,17 +10,17 @@ private:
 	class Ammo
 	{
 	public:
-		void Update(Graphics& gfx, Arrow& arrow);
+		void Update(Graphics& gfx, Arrow& arrow, float dt);
 		void Draw(Graphics& gfx, Arrow& arrow);
 	private:
 		bool shot = false;
 		bool offScreen = false;
 		float x;
 		float y;
-		float ammoSpeed = 10.0f;
+		float ammoSpeed = 7.0f;
 	};
 public:
-	void Update(Graphics& gfx, Keyboard& kbd);
+	void Update(Graphics& gfx, Keyboard& kbd, float dt);
 	void ClampToScreen();
 	void Shoot(Keyboard& kbd);
 	void Draw(Graphics& gfx);
@@ -32,5 +32,5 @@ private:
 	float y = 300.0f;
 	static constexpr float width = 20.0f;
 	static constexpr float height = 20.0f;
-	static constexpr float speed = 4.0f;
+	static constexpr float speed = 2.0f;
 };

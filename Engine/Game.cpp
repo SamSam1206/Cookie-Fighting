@@ -41,7 +41,7 @@ void Game::UpdateModel()
 {
 	float dt = ft.Mark();
 	space.Draw(gfx);
-	arrow.Update(gfx, wnd.kbd);
+	arrow.Update(gfx, wnd.kbd, dt);
 	arrow.ClampToScreen();
 }
 

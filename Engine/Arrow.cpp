@@ -1,28 +1,28 @@
 #include "Arrow.h"
 
-void Arrow::Update(Graphics& gfx, Keyboard& kbd)
+void Arrow::Update(Graphics& gfx, Keyboard& kbd, float dt)
 {
 	if (kbd.KeyIsPressed(VK_UP))
 	{
-		y -= speed;
+		y -= speed * dt*60.0f;
 	}
 	if (kbd.KeyIsPressed(VK_DOWN))
 	{
-		y += speed;
+		y += speed * dt*60.0f;
 	}
 	if (kbd.KeyIsPressed(VK_RIGHT))
 	{
-		x += speed;
+		x += speed * dt*60.0f;
 	}
 	if (kbd.KeyIsPressed(VK_LEFT))
 	{
-		x -= speed;
+		x -= speed * dt*60.0f;
 	}
 
 	Shoot(kbd);
 	for (int i = 0; i < ammo.size(); i++)
 	{
-		ammo[i].Update(gfx, *this);
+		ammo[i].Update(gfx, *this, dt);
 	}
 }
 
@@ -318,7 +318,7 @@ void Arrow::Draw(Graphics & gfx)
 	gfx.PutPixel(4 + i_x, 19 + i_y, 127, 127, 127);
 }
 
-void Arrow::Ammo::Update(Graphics& gfx, Arrow& arrow)
+void Arrow::Ammo::Update(Graphics& gfx, Arrow& arrow, float dt)
 {
 	if (x >= float(Graphics::ScreenWidth) - 5)
 	{
@@ -328,7 +328,7 @@ void Arrow::Ammo::Update(Graphics& gfx, Arrow& arrow)
 	{
 		Draw(gfx, arrow);
 	}
-	x += ammoSpeed;
+	x += ammoSpeed*dt*60.0f;
 }
 
 void Arrow::Ammo::Draw(Graphics& gfx, Arrow& arrow)
