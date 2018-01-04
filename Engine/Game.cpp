@@ -49,4 +49,5 @@ void Game::ComposeFrame()
 {
 	MeteoriteSprite::DrawMeteorite1(100, 100, gfx);
 	arrow.Draw(gfx);
+	border.Draw(gfx);
 }
