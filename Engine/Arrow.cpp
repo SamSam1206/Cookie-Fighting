@@ -351,4 +351,12 @@ void Arrow::Ammo::Draw(Graphics& gfx, Arrow& arrow)
 	int i_y = int(y);
 	gfx.PutPixel(0 + i_x, 0 + i_y, 224, 32, 64);
 	gfx.PutPixel(1 + i_x, 0 + i_y, 224, 32, 64);
+	gfx.PutPixel(2 + i_x, 0 + i_y, 224, 32, 64);
+	gfx.PutPixel(3 + i_x, 0 + i_y, 224, 32, 64);
+	gfx.PutPixel(4 + i_x, 0 + i_y, 224, 32, 64);
+	gfx.PutPixel(0 + i_x, 1 + i_y, 224, 32, 64);
+	gfx.PutPixel(1 + i_x, 1 + i_y, 224, 32, 64);
+	gfx.PutPixel(2 + i_x, 1 + i_y, 224, 32, 64);
+	gfx.PutPixel(3 + i_x, 1 + i_y, 224, 32, 64);
+	gfx.PutPixel(4 + i_x, 1 + i_y, 224, 32, 64);
 }
