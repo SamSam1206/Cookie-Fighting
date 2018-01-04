@@ -19,6 +19,11 @@ private:
 		float y;
 		float ammoSpeed = 7.0f;
 	};
+	class meter
+	{
+	public:
+	private:
+	};
 public:
 	void Update(Graphics& gfx, Keyboard& kbd, float dt);
 	void ClampToScreen();

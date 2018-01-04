@@ -33,13 +33,13 @@ void Arrow::ClampToScreen()
 {
 	if (y < Border::YBorder)
 	{
-		y = Border::YBorder + 1;
+		y = Border::YBorder;
 	}
 	if (y + height > float(Graphics::ScreenHeight - 1 - Border::YBorder))
 	{
 		y = float(Graphics::ScreenHeight - 1 - Border::YBorder) - height;
 	}
-	if (x < Border::XBorder)
+	if (x < Border::XBorder + 1)
 	{
 		x = Border::XBorder + 1;
 	}
@@ -54,7 +54,7 @@ void Arrow::Shoot(Keyboard& kbd, float dt)
 	shootEverySeconds += dt;
 	if (kbd.KeyIsPressed(VK_SPACE))
 	{
-		if (shootEverySeconds > 0.3)
+		if (shootEverySeconds > 0.3 && ammoShot < 10)
 		{
 			ammoShot++;
 			ammo.push_back(Ammo());
