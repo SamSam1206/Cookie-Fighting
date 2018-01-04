@@ -10,8 +10,8 @@ private:
 	class Ammo
 	{
 	public:
-		void Update(Graphics& gfx, Arrow& arrow, float dt);
-		void Draw(Graphics& gfx, Arrow& arrow);
+		void Update(Graphics& gfx, const Arrow& arrow, const float dt);
+		void Draw(Graphics& gfx, const Arrow& arrow);
 	private:
 		bool shot = false;
 		bool offScreen = false;
@@ -19,16 +19,12 @@ private:
 		float y;
 		float ammoSpeed = 7.0f;
 	};
-	class meter
-	{
-	public:
-	private:
-	};
 public:
 	void Update(Graphics& gfx, Keyboard& kbd, float dt);
 	void ClampToScreen();
-	void Shoot(Keyboard& kbd, float dt);
+	void Shoot(Keyboard& kbd, const float dt);
 	void Draw(Graphics& gfx);
+	int GetBulletNumber() const;
 private:
 	std::vector<Ammo> ammo;
 	int ammoShot = 0;

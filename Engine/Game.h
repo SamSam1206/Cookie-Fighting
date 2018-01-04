@@ -28,6 +28,7 @@
 #include "FrameTimer.h"
 #include "Meteorite.h"
 #include "Border.h"
+#include "Meter.h"
 
 class Game
 {
@@ -51,5 +52,6 @@ private:
 	Arrow arrow;
 	Space space;
 	Border border;
+	Meter meter;
 	/********************************/
 };

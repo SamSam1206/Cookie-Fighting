@@ -49,7 +49,7 @@ void Arrow::ClampToScreen()
 	}
 }
 
-void Arrow::Shoot(Keyboard& kbd, float dt)
+void Arrow::Shoot(Keyboard& kbd, const float dt)
 {
 	shootEverySeconds += dt;
 	if (kbd.KeyIsPressed(VK_SPACE))
@@ -326,7 +326,12 @@ void Arrow::Draw(Graphics & gfx)
 	gfx.PutPixel(4 + i_x, 19 + i_y, 127, 127, 127);
 }
 
-void Arrow::Ammo::Update(Graphics& gfx, Arrow& arrow, float dt)
+int Arrow::GetBulletNumber() const
+{
+	return ammoShot;
+}
+
+void Arrow::Ammo::Update(Graphics& gfx, const Arrow& arrow, const float dt)
 {
 	if (x >= float(Graphics::ScreenWidth) - 5)
 	{
@@ -339,7 +344,7 @@ void Arrow::Ammo::Update(Graphics& gfx, Arrow& arrow, float dt)
 	x += ammoSpeed*dt*60.0f;
 }
 
-void Arrow::Ammo::Draw(Graphics& gfx, Arrow& arrow)
+void Arrow::Ammo::Draw(Graphics& gfx, const Arrow& arrow)
 {
 	if (shot == false)
 	{

@@ -25,7 +25,8 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	meter(arrow)
 {
 }
 
@@ -49,4 +50,5 @@ void Game::ComposeFrame()
 	MeteoriteSprite::DrawMeteorite1(100, 100, gfx);
 	arrow.Draw(gfx);
 	border.Draw(gfx);
+	meter.Update(gfx);
 }
