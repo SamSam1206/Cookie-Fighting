@@ -28,7 +28,7 @@ private:
 	std::vector<Ammo> ammo;
 	int ammoShot = 0;
 	bool shooting = false;
-	float x = 20.0f;
+	float x = 70.0f;
 	float y = 300.0f;
 	static constexpr float width = 20.0f;
 	static constexpr float height = 20.0f;

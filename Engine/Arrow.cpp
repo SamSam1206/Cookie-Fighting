@@ -1,4 +1,5 @@
 #include "Arrow.h"
+#include "Border.h"
 
 void Arrow::Update(Graphics& gfx, Keyboard& kbd, float dt)
 {
@@ -24,25 +25,27 @@ void Arrow::Update(Graphics& gfx, Keyboard& kbd, float dt)
 	{
 		ammo[i].Update(gfx, *this, dt);
 	}
+
+	ClampToScreen();
 }
 
 void Arrow::ClampToScreen()
 {
-	if (y < 0)
+	if (y < Border::YBorder)
 	{
-		y = 0;
+		y = Border::YBorder + 1;
 	}
-	if (y + height > float(Graphics::ScreenHeight - 1))
+	if (y + height > float(Graphics::ScreenHeight - 1 - Border::YBorder))
 	{
-		y = float(Graphics::ScreenHeight - 1) - height;
+		y = float(Graphics::ScreenHeight - 1 - Border::YBorder) - height;
 	}
-	if (x < 0)
+	if (x < Border::XBorder)
 	{
-		x = 0;
+		x = Border::XBorder + 1;
 	}
-	if (x + width > float(Graphics::ScreenWidth - 1))
+	if (x + width > float(Graphics::ScreenWidth - 1 - Border::XBorder))
 	{
-		x = float(Graphics::ScreenWidth - 1) - width;
+		x = float(Graphics::ScreenWidth - 1 - Border::XBorder) - width;
 	}
 }
 
