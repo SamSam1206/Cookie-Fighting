@@ -8,22 +8,35 @@ Space::Space(Graphics & gfx, std::mt19937 & rng)
 {
 }
 
-void Space::Update(const float dt)
+void Space::Update(Arrow& arrow, const float dt)
 {
+	std::uniform_real_distribution<float> tDist(0.4f, 0.9f);
 	timeCounter += dt;
 
 	std::uniform_int_distribution<int> nDist(1, 10);
 	std::uniform_int_distribution<int> yDist(Border::YBorder, Graphics::ScreenHeight - Border::YBorder);
-	if (timeCounter >= 1)
+	if (timeCounter >= 1 * tDist(rng))
 	{
 		timeCounter = 0;
 		MeteoriteSprite m(Graphics::ScreenWidth-Border::XBorder, yDist(rng), nDist(rng), gfx);
 		meteorites.push_back(m);
 	}
 
+	std::uniform_int_distribution<int> zDist(0, 10);
+	if (zDist(rng) == 1)
+	{
+		MeteoriteSprite m(Graphics::ScreenWidth - Border::XBorder, yDist(rng), nDist(rng), gfx);
+		meteorites.push_back(m);
+	}
+
 	for (int i = 0; i < meteorites.size(); i++)
 	{
 		meteorites[i].Update();
+	}
+
+	for (int i = 0; i < meteorites.size() && collision == false; i++)
+	{
+		collision = meteorites[i].IsColliding(arrow);
 	}
 }
 
@@ -236,4 +249,9 @@ void Space::Draw()
 	gfx.PutPixel(263 + x, 549 + y, 122, 122, 122);
 	gfx.PutPixel(264 + x, 549 + y, 255, 255, 255);
 
+}
+
+bool Space::GetCollision() const
+{
+	return collision;
 }

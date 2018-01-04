@@ -55,5 +55,6 @@ private:
 	Arrow arrow;
 	Meter meter;
 	Space space;
+	bool gameIsOver = false;
 	/********************************/
 };

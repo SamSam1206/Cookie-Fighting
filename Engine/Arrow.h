@@ -25,6 +25,10 @@ public:
 	void Shoot(Keyboard& kbd, const float dt);
 	void Draw(Graphics& gfx);
 	int GetBulletNumber() const;
+	int GetWidth() const;
+	int GetHeight() const;
+	int GetX() const;
+	int GetY() const;
 private:
 	std::vector<Ammo> ammo;
 	int ammoShot = 0;

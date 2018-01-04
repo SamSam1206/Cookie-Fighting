@@ -42,10 +42,14 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	float dt = ft.Mark();
-	space.Draw();
-	space.Update(dt);
-	arrow.Update(gfx, wnd.kbd, dt);
+	if (!gameIsOver)
+	{
+		float dt = ft.Mark();
+		space.Draw();
+		space.Update(arrow, dt);
+		arrow.Update(gfx, wnd.kbd, dt);
+		gameIsOver = space.GetCollision();
+	}
 }
 
 void Game::ComposeFrame()

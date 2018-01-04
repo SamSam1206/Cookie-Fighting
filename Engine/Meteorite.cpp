@@ -29,37 +29,70 @@ void MeteoriteSprite::Draw()
 	{
 	case 1:
 		MeteoriteSprite1();
+		Width = 36;
+		Height = 34;
 		break;
 	case 2:
 		MeteoriteSprite2();
+		Width = 38;
+		Height = 37;
 		break;
 	case 3:
 		MeteoriteSprite3();
+		Width = 29;
+		Height = 31;
 		break;
 	case 4:
 		MeteoriteSprite4();
+		Width = 7;
+		Height = 8;
 		break;
 	case 5:
 		MeteoriteSprite5();
+		Width = 36;
+		Height = 34;
 		break;
 	case 6:
 		MeteoriteSprite6();
+		Width = 32;
+		Height = 26;
 		break;
 	case 7:
 		MeteoriteSprite7();
+		Width = 17;
+		Height = 10;
 		break;
 	case 8:
 		MeteoriteSprite8();
+		Width = 31;
+		Height = 33;
 		break;
 	case 9:
 		MeteoriteSprite9();
+		Width = 26;
+		Height = 34;
 		break;
 	case 10:
 		MeteoriteSprite10();
+		Width = 19;
+		Height = 21;
 		break;
 	default:
 		break;
 	}
+}
+
+bool MeteoriteSprite::IsColliding(Arrow & arrow)
+{
+	const int arrowRight = arrow.GetX() + arrow.GetWidth();
+	const int arrowBottom = arrow.GetY() + arrow.GetHeight();
+	const int meteoreRight = x + Width;
+	const int meteoreBottom = y + Height;
+
+	return x < arrowRight &&
+		   meteoreRight > arrow.GetX() &&
+		   y < arrowBottom &&
+		   meteoreBottom > arrow.GetY();
 }
 
 void MeteoriteSprite::MeteoriteSprite1()

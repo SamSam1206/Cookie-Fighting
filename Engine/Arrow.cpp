@@ -335,6 +335,26 @@ int Arrow::GetBulletNumber() const
 	return ammoShot;
 }
 
+int Arrow::GetWidth() const
+{
+	return width;
+}
+
+int Arrow::GetHeight() const
+{
+	return height;
+}
+
+int Arrow::GetX() const
+{
+	return x;
+}
+
+int Arrow::GetY() const
+{
+	return y;
+}
+
 void Arrow::Ammo::Update(Graphics& gfx, const Arrow& arrow, const float dt)
 {
 	if (x >= float(Graphics::ScreenWidth) - 5)
