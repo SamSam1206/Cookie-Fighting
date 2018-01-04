@@ -19,6 +19,10 @@ void Arrow::Update(Graphics& gfx, Keyboard& kbd, float dt)
 	{
 		x -= speed * dt*60.0f;
 	}
+	if (kbd.KeyIsPressed('R'))
+	{
+		ammoShot = 0;
+	}
 
 	Shoot(kbd, dt);
 	for (int i = 0; i < ammo.size(); i++)

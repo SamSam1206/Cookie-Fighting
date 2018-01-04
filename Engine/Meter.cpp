@@ -9,9 +9,9 @@ Meter::Meter(Arrow & arrow)
 void Meter::Update(Graphics & gfx)
 {
 	ammoLeft = 10 - arrow.GetBulletNumber();
-	for (int i = 0; i < ammoLeft; i++)
+	for (int i = 1; i <= ammoLeft; i++)
 	{
-		Draw(20 * i + 5, 20, gfx);
+		Draw(20 * i + 10, 17, gfx);
 	}
 }
 
