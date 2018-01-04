@@ -1,18 +1,28 @@
 #pragma once
 
 #include "Graphics.h"
+#include <vector>
+#include <random>
 
 class MeteoriteSprite
 {
 public:
-	void static DrawMeteorite1(int x, int y, Graphics& gfx);
-	void static DrawMeteorite2(int x, int y, Graphics& gfx);
-	void static DrawMeteorite3(int x, int y, Graphics& gfx);
-	void static DrawMeteorite4(int x, int y, Graphics& gfx);
-	void static DrawMeteorite5(int x, int y, Graphics& gfx);
-	void static DrawMeteorite6(int x, int y, Graphics& gfx);
-	void static DrawMeteorite7(int x, int y, Graphics& gfx);
-	void static DrawMeteorite8(int x, int y, Graphics& gfx);
-	void static DrawMeteorite9(int x, int y, Graphics& gfx);
-	void static DrawMeteorite10(int x, int y, Graphics& gfx);
+	MeteoriteSprite(int x, int y, int n, Graphics& gfx);
+	void Update();
+	void Draw();
+private:
+	int x;
+	int y;
+	int n;
+	void MeteoriteSprite1();
+	void MeteoriteSprite2();
+	void MeteoriteSprite3();
+	void MeteoriteSprite4();
+	void MeteoriteSprite5();
+	void MeteoriteSprite6();
+	void MeteoriteSprite7();
+	void MeteoriteSprite8();
+	void MeteoriteSprite9();
+	void MeteoriteSprite10();
+	Graphics& gfx;
 };

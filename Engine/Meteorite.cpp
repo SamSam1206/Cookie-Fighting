@@ -1,6 +1,68 @@
 #include "Meteorite.h"
+#include "Border.h"
 
-void MeteoriteSprite::DrawMeteorite1(int x, int y, Graphics & gfx)
+MeteoriteSprite::MeteoriteSprite(int x, int y, int n, Graphics & gfx)
+	:
+	gfx(gfx),
+	x(x),
+	y(y),
+	n(n)
+{
+}
+
+void MeteoriteSprite::Update()
+{
+	Draw();
+	if (x < 8)
+	{
+		x = 0;
+	}
+	else
+	{
+		x -= 5;
+	}
+}
+
+void MeteoriteSprite::Draw()
+{
+	switch (n)
+	{
+	case 1:
+		MeteoriteSprite1();
+		break;
+	case 2:
+		MeteoriteSprite2();
+		break;
+	case 3:
+		MeteoriteSprite3();
+		break;
+	case 4:
+		MeteoriteSprite4();
+		break;
+	case 5:
+		MeteoriteSprite5();
+		break;
+	case 6:
+		MeteoriteSprite6();
+		break;
+	case 7:
+		MeteoriteSprite7();
+		break;
+	case 8:
+		MeteoriteSprite8();
+		break;
+	case 9:
+		MeteoriteSprite9();
+		break;
+	case 10:
+		MeteoriteSprite10();
+		break;
+	default:
+		break;
+	}
+}
+
+void MeteoriteSprite::MeteoriteSprite1()
 {
 	gfx.PutPixel(2 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(3 + x, 0 + y, 0, 0, 0);
@@ -894,7 +956,7 @@ void MeteoriteSprite::DrawMeteorite1(int x, int y, Graphics & gfx)
 	gfx.PutPixel(29 + x, 33 + y, 0, 0, 0);
 }
 
-void MeteoriteSprite::DrawMeteorite2(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite2()
 {
 	gfx.PutPixel(13 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(14 + x, 0 + y, 0, 0, 0);
@@ -1985,7 +2047,7 @@ void MeteoriteSprite::DrawMeteorite2(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite3(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite3()
 {
 	gfx.PutPixel(23 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(23 + x, 1 + y, 0, 0, 0);
@@ -2415,7 +2477,7 @@ void MeteoriteSprite::DrawMeteorite3(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite4(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite4()
 {
 	gfx.PutPixel(1 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(2 + x, 0 + y, 0, 0, 0);
@@ -2465,7 +2527,7 @@ void MeteoriteSprite::DrawMeteorite4(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite5(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite5()
 {
 	gfx.PutPixel(19 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(20 + x, 0 + y, 0, 0, 0);
@@ -3341,7 +3403,7 @@ void MeteoriteSprite::DrawMeteorite5(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite6(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite6()
 {
 	gfx.PutPixel(4 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(5 + x, 0 + y, 0, 0, 0);
@@ -3746,7 +3808,7 @@ void MeteoriteSprite::DrawMeteorite6(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite7(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite7()
 {
 	gfx.PutPixel(0 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(1 + x, 0 + y, 0, 0, 0);
@@ -3876,7 +3938,7 @@ void MeteoriteSprite::DrawMeteorite7(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite8(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite8()
 {
 	gfx.PutPixel(23 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(24 + x, 0 + y, 0, 0, 0);
@@ -4659,7 +4721,7 @@ void MeteoriteSprite::DrawMeteorite8(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite9(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite9()
 {
 	gfx.PutPixel(5 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(6 + x, 0 + y, 0, 0, 0);
@@ -5316,7 +5378,7 @@ void MeteoriteSprite::DrawMeteorite9(int x, int y, Graphics & gfx)
 
 }
 
-void MeteoriteSprite::DrawMeteorite10(int x, int y, Graphics & gfx)
+void MeteoriteSprite::MeteoriteSprite10()
 {
 	gfx.PutPixel(3 + x, 0 + y, 0, 0, 0);
 	gfx.PutPixel(4 + x, 0 + y, 0, 0, 0);
@@ -5525,4 +5587,5 @@ void MeteoriteSprite::DrawMeteorite10(int x, int y, Graphics & gfx)
 	gfx.PutPixel(13 + x, 20 + y, 0, 0, 0);
 	gfx.PutPixel(14 + x, 20 + y, 0, 0, 0);
 	gfx.PutPixel(15 + x, 20 + y, 0, 0, 0);
+
 }

@@ -1,6 +1,33 @@
 #include "Space.h"
+#include "Border.h"
 
-void Space::Draw(Graphics & gfx)
+Space::Space(Graphics & gfx, std::mt19937 & rng)
+	:
+	gfx(gfx),
+	rng(rng)
+{
+}
+
+void Space::Update(const float dt)
+{
+	timeCounter += dt;
+
+	std::uniform_int_distribution<int> nDist(1, 10);
+	std::uniform_int_distribution<int> yDist(Border::YBorder, Graphics::ScreenHeight - Border::YBorder);
+	if (timeCounter >= 1)
+	{
+		timeCounter = 0;
+		MeteoriteSprite m(Graphics::ScreenWidth-Border::XBorder, yDist(rng), nDist(rng), gfx);
+		meteorites.push_back(m);
+	}
+
+	for (int i = 0; i < meteorites.size(); i++)
+	{
+		meteorites[i].Update();
+	}
+}
+
+void Space::Draw()
 {
 	gfx.PutPixel(292 + x, 43 + y, 87, 87, 87);
 	gfx.PutPixel(293 + x, 43 + y, 122, 122, 122);

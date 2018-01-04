@@ -26,7 +26,9 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	meter(arrow)
+	rng(std::random_device()()),
+	meter(arrow),
+	space(gfx, rng)
 {
 }
 
@@ -41,13 +43,13 @@ void Game::Go()
 void Game::UpdateModel()
 {
 	float dt = ft.Mark();
-	space.Draw(gfx);
+	space.Draw();
+	space.Update(dt);
 	arrow.Update(gfx, wnd.kbd, dt);
 }
 
 void Game::ComposeFrame()
 {
-	MeteoriteSprite::DrawMeteorite1(100, 100, gfx);
 	arrow.Draw(gfx);
 	border.Draw(gfx);
 	meter.Update(gfx);

@@ -29,6 +29,7 @@
 #include "Meteorite.h"
 #include "Border.h"
 #include "Meter.h"
+#include <random>
 
 class Game
 {
@@ -48,10 +49,11 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	std::mt19937 rng;
 	FrameTimer ft;
-	Arrow arrow;
-	Space space;
 	Border border;
+	Arrow arrow;
 	Meter meter;
+	Space space;
 	/********************************/
 };
