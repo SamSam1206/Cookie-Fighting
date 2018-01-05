@@ -5,13 +5,19 @@
 #include <vector>
 #include <random>
 
+class Arrow;
+
 class MeteoriteSprite
 {
 public:
 	MeteoriteSprite(float x, float y, int n, Graphics& gfx);
-	void Update();
+	void Update(Arrow& arrow);
 	void Draw();
 	bool IsColliding(Arrow& arrow);
+	float GetWidth() const;
+	float GetHeight() const;
+	float GetX() const;
+	float GetY() const;
 private:
 	float x;
 	float y;

@@ -31,7 +31,7 @@ void Space::Update(Arrow& arrow, const float dt)
 
 	for (int i = 0; i < meteorites.size(); i++)
 	{
-		meteorites[i].Update();
+		meteorites[i].Update(arrow);
 	}
 
 	for (int i = 0; i < meteorites.size() && collision == false; i++)

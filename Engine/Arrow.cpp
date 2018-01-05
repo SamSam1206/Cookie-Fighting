@@ -1,5 +1,5 @@
-#include "Arrow.h"
 #include "Border.h"
+#include "Arrow.h"
 
 void Arrow::Update(Graphics& gfx, Keyboard& kbd, float dt)
 {
@@ -330,6 +330,28 @@ void Arrow::Draw(Graphics & gfx)
 	gfx.PutPixel(4 + i_x, 19 + i_y, 127, 127, 127);
 }
 
+bool Arrow::AmmoCollidingWithMeteorites(MeteoriteSprite & meteorite)
+{
+	const float MeteoriteRight = meteorite.GetX() + meteorite.GetWidth();
+	const float MeteoriteBottom = meteorite.GetY() + meteorite.GetHeight();
+
+	bool Collision = false;
+	for (int i = 0; i < ammo.size(); i++)
+	{
+		const float AmmoRight = ammo[i].GetX() + ammo[i].GetWidth();
+		const float AmmoBottom = ammo[i].GetY() + ammo[i].GetHeight();
+
+		if (ammo[i].GetX() < MeteoriteRight &&
+			AmmoRight > meteorite.GetX() &&
+			ammo[i].GetY() < MeteoriteBottom &&
+			AmmoBottom > meteorite.GetY() )
+		{
+			Collision =  true;
+		}
+	}
+	return Collision;
+}
+
 int Arrow::GetBulletNumber() const
 {
 	return ammoShot;
@@ -388,4 +410,24 @@ void Arrow::Ammo::Draw(Graphics& gfx, const Arrow& arrow)
 	gfx.PutPixel(2 + i_x, 1 + i_y, 224, 32, 64);
 	gfx.PutPixel(3 + i_x, 1 + i_y, 224, 32, 64);
 	gfx.PutPixel(4 + i_x, 1 + i_y, 224, 32, 64);
+}
+
+float Arrow::Ammo::GetX() const
+{
+	return x;
+}
+
+float Arrow::Ammo::GetY() const
+{
+	return y;
+}
+
+float Arrow::Ammo::GetWidth() const
+{
+	return width;
+}
+
+float Arrow::Ammo::GetHeight() const
+{
+	return height;
 }

@@ -2,7 +2,10 @@
 
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "Meteorite.h"
 #include <vector>
+
+class MeteoriteSprite;
 
 class Arrow
 {
@@ -12,11 +15,17 @@ private:
 	public:
 		void Update(Graphics& gfx, const Arrow& arrow, const float dt);
 		void Draw(Graphics& gfx, const Arrow& arrow);
+		float GetX() const;
+		float GetY() const;
+		float GetWidth() const;
+		float GetHeight() const;
 	private:
 		bool shot = false;
 		bool offScreen = false;
 		float x;
 		float y;
+		float width = 4;
+		float height = 2;
 		float ammoSpeed = 7.0f;
 	};
 public:
@@ -24,6 +33,7 @@ public:
 	void ClampToScreen();
 	void Shoot(Keyboard& kbd, const float dt);
 	void Draw(Graphics& gfx);
+	bool AmmoCollidingWithMeteorites(MeteoriteSprite& meteorite);
 	int GetBulletNumber() const;
 	float GetWidth() const;
 	float GetHeight() const;

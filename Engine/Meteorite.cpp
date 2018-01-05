@@ -1,5 +1,6 @@
 #include "Meteorite.h"
 #include "Border.h"
+#include "Arrow.h"
 
 MeteoriteSprite::MeteoriteSprite(float x, float y, int n, Graphics & gfx)
 	:
@@ -10,16 +11,24 @@ MeteoriteSprite::MeteoriteSprite(float x, float y, int n, Graphics & gfx)
 {
 }
 
-void MeteoriteSprite::Update()
+void MeteoriteSprite::Update(Arrow& arrow)
 {
-	Draw();
-	if (x < 8.0f)
+	if (!arrow.AmmoCollidingWithMeteorites(*this))
 	{
-		x = 0.0f;
+		Draw();
+		if (x < 8.0f)
+		{
+			x = 0.0f;
+		}
+		else
+		{
+			x -= 5.0f;
+		}
 	}
 	else
 	{
-		x -= 5.0f;
+		x = 0.0f;
+		y = 0.0f;
 	}
 }
 
@@ -93,6 +102,26 @@ bool MeteoriteSprite::IsColliding(Arrow & arrow)
 		   meteoreRight > arrow.GetX() &&
 		   y < arrowBottom &&
 		   meteoreBottom > arrow.GetY();
+}
+
+float MeteoriteSprite::GetWidth() const
+{
+	return Width;
+}
+
+float MeteoriteSprite::GetHeight() const
+{
+	return Height;
+}
+
+float MeteoriteSprite::GetX() const
+{
+	return x;
+}
+
+float MeteoriteSprite::GetY() const
+{
+	return y;
 }
 
 void MeteoriteSprite::MeteoriteSprite1()
