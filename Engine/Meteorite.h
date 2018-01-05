@@ -8,16 +8,16 @@
 class MeteoriteSprite
 {
 public:
-	MeteoriteSprite(int x, int y, int n, Graphics& gfx);
+	MeteoriteSprite(float x, float y, int n, Graphics& gfx);
 	void Update();
 	void Draw();
 	bool IsColliding(Arrow& arrow);
 private:
-	int x;
-	int y;
+	float x;
+	float y;
 	int n;
-	int Width;
-	int Height;
+	float Width;
+	float Height;
 	void MeteoriteSprite1();
 	void MeteoriteSprite2();
 	void MeteoriteSprite3();

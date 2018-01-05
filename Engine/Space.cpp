@@ -14,7 +14,7 @@ void Space::Update(Arrow& arrow, const float dt)
 	timeCounter += dt;
 
 	std::uniform_int_distribution<int> nDist(1, 10);
-	std::uniform_int_distribution<int> yDist(Border::YBorder, Graphics::ScreenHeight - Border::YBorder);
+	std::uniform_real_distribution<float> yDist(float(Border::YBorder), float(Graphics::ScreenHeight - Border::YBorder));
 	if (timeCounter >= 1 * tDist(rng))
 	{
 		timeCounter = 0;

@@ -335,22 +335,22 @@ int Arrow::GetBulletNumber() const
 	return ammoShot;
 }
 
-int Arrow::GetWidth() const
+float Arrow::GetWidth() const
 {
 	return width;
 }
 
-int Arrow::GetHeight() const
+float Arrow::GetHeight() const
 {
 	return height;
 }
 
-int Arrow::GetX() const
+float Arrow::GetX() const
 {
 	return x;
 }
 
-int Arrow::GetY() const
+float Arrow::GetY() const
 {
 	return y;
 }
