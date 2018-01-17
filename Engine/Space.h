@@ -14,8 +14,8 @@ public:
 private:
 	std::vector<MeteoriteSprite> meteorites;
 	int x = 0;
-	int y = 0;
-	bool collision;
+	int y = 0; 
+	bool collision = false;
 	float timeCounter = 0;
 	Graphics& gfx;
 	std::mt19937& rng;
